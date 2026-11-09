@@ -11,13 +11,16 @@ export const createApiAccessGuard =
       if (!request.path.startsWith("/v1/")) return next();
       const origin = request.headers.origin;
       if (origin) {
-        let host: string;
+        let allowedOrigin: boolean;
         try {
-          host = new URL(origin).host;
+          const requestOrigin = new URL(origin);
+          allowedOrigin =
+            requestOrigin.host === request.headers.host ||
+            requestOrigin.origin === new URL(config.PUBLIC_ORIGIN).origin;
         } catch {
           return next(new AppError("ORIGIN_DENIED", commonStrings.ORIGIN_DENIED, 403));
         }
-        if (host !== request.headers.host && origin !== config.PUBLIC_ORIGIN)
+        if (!allowedOrigin)
           return next(new AppError("ORIGIN_DENIED", commonStrings.ORIGIN_DENIED, 403));
       }
       if (request.path === "/v1/openapi.json" || request.path === "/v1/capabilities") return next();

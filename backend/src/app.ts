@@ -13,6 +13,7 @@ import { commonStrings } from "./constants/common.js";
 import { createIndexingWorker } from "./services/indexing-worker.service.js";
 import { registerErrorHandler } from "./middlewares/error-handler.js";
 import { registerRequestLogging } from "./middlewares/request-logger.js";
+import { createCorsMiddleware } from "./middlewares/cors.js";
 import { sendJson } from "./routes/serializers.js";
 import { configureLogger, createLogger } from "./utils/logger.js";
 
@@ -35,6 +36,7 @@ export function buildApp(
   const appLogger = createLogger({ module: "api" });
   app.disable("x-powered-by");
   registerRequestLogging(app);
+  app.use(createCorsMiddleware(config));
   app.use(express.json({ limit: 64 * 1024 }));
   app.use(
     rateLimit({
