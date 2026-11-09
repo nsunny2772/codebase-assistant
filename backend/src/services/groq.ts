@@ -25,10 +25,8 @@ const responseSchema = yup
                 content: yup.string().nullable().required(),
                 refusal: yup.string().nullable().optional(),
               })
-              .noUnknown()
               .required(),
           })
-          .noUnknown(),
       )
       .length(1)
       .required(),
@@ -37,10 +35,8 @@ const responseSchema = yup
         prompt_tokens: yup.number().integer().min(0).required(),
         completion_tokens: yup.number().integer().min(0).required(),
       })
-      .noUnknown()
       .required(),
-  })
-  .noUnknown();
+  });
 
 export class GroqService {
   constructor(
