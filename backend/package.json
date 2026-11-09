@@ -1,0 +1,43 @@
+{
+  "name": "@codebase-assistant/backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint . --max-warnings 0",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run build",
+    "db:init": "node --import tsx scripts/migrate-db.ts",
+    "db:migrate": "node --import tsx scripts/migrate-db.ts",
+    "format": "prettier --write src tests scripts"
+  },
+  "dependencies": {
+    "@langchain/langgraph": "1.6.0",
+    "@vscode/tree-sitter-wasm": "0.3.1",
+    "dotenv": "18.0.9",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.3",
+    "js-tiktoken": "1.0.21",
+    "neo4j-driver": "6.3.0",
+    "tar-stream": "3.2.2",
+    "typescript": "6.0.3",
+    "winston": "^3.19.0",
+    "yup": "^1.7.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "26.6.6",
+    "@types/tar-stream": "3.1.5",
+    "eslint": "10.14.0",
+    "globals": "17.14.0",
+    "prettier": "3.9.10",
+    "tsx": "4.23.15",
+    "typescript-eslint": "8.72.1",
+    "vitest": "5.1.0"
+  }
+}

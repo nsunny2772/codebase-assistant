@@ -1,0 +1,27 @@
+.details {
+  margin: 12px 0;
+  overflow-wrap: anywhere;
+}
+
+.file {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 0;
+
+  code {
+    color: #334155;
+  }
+
+  span {
+    flex: 0 0 auto;
+    color: #64748b;
+  }
+}
+
+@media (max-width: 600px) {
+  .file {
+    flex-direction: column;
+    gap: 2px;
+  }
+}

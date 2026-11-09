@@ -1,0 +1,95 @@
+.addPanel {
+  width: 100%;
+  max-width: 1120px;
+  margin: 24px 0;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid #e4e8ef;
+  border-radius: 12px;
+
+  h3 {
+    margin-top: 0;
+    font-size: 22px;
+  }
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 12px;
+
+  > button,
+  :global(.ant-input-affix-wrapper),
+  :global(.ant-input):not(:global(.ant-input-affix-wrapper) :global(.ant-input)) {
+    min-height: 48px;
+  }
+
+  > button {
+    padding-inline: 20px;
+  }
+
+  :global(.ant-input) {
+    font-size: 16px;
+  }
+}
+
+.section {
+  margin-top: 16px;
+}
+
+.duplicate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 16px;
+  background: #f5f8ff;
+  border: 1px solid #dbe6fb;
+  border-radius: 8px;
+}
+
+.duplicateCopy,
+.duplicateActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.duplicateCopy {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.examples {
+  margin-top: 20px;
+
+  summary {
+    padding: 8px 0;
+    color: #52657d;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 600px) {
+  .addPanel {
+    padding: 20px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .duplicate {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .duplicateActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

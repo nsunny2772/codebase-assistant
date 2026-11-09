@@ -1,0 +1,12 @@
+**/node_modules
+**/dist
+**/.env
+**/.env.*
+**/.data
+.git
+.codex
+.aws
+.agents
+docs
+**/coverage
+*.log

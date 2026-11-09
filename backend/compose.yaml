@@ -1,0 +1,20 @@
+# Backend-only deployment. The indexing worker runs inside the API process.
+# Neo4j remains an external service; this file does not start a database or frontend.
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+    env_file:
+      - .env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3001
+    ports:
+      - "127.0.0.1:3001:3001"
+    init: true
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+    stop_grace_period: 30s

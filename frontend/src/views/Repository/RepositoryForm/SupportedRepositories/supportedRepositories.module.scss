@@ -1,0 +1,24 @@
+.supportedStacks {
+  margin: 20px 0 24px;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  h4 {
+    margin-top: 0;
+  }
+  :global(.ant-typography) {
+    margin-top: 10px;
+  }
+}
+.examples {
+  list-style: none;
+  padding: 0;
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    margin: 12px 0;
+  }
+}
