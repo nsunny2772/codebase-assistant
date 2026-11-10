@@ -23,7 +23,11 @@ export const createApiAccessGuard =
         if (!allowedOrigin)
           return next(new AppError("ORIGIN_DENIED", commonStrings.ORIGIN_DENIED, 403));
       }
-      if (request.path === "/v1/openapi.json" || request.path === "/v1/capabilities") return next();
+      if (
+        request.path === "/v1/openapi.json" ||
+        request.path === "/v1/capabilities" ||
+        request.path === "/v1/explore/repositories"
+      ) return next();
       if (!store || !ai)
         return next(new AppError("SERVICE_NOT_CONFIGURED", commonStrings.SERVICE_NOT_CONFIGURED, 503));
       next();

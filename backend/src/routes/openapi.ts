@@ -39,6 +39,20 @@ export const openApiDocument = {
     "/v1/capabilities": {
       get: { responses: { "200": { description: "Analysis capabilities" } } },
     },
+    "/v1/explore/repositories": {
+      get: {
+        parameters: [
+          { name: "query", in: "query", required: true, schema: { type: "string", minLength: 2, maxLength: 100 } },
+          { name: "language", in: "query", schema: { type: "string" } },
+          { name: "sort", in: "query", schema: { type: "string", enum: ["stars", "updated"], default: "stars" } },
+          { name: "page", in: "query", schema: { type: "integer", minimum: 1, maximum: 100, default: 1 } },
+        ],
+        responses: {
+          "200": { description: "Public GitHub repositories matching the query" },
+          "503": { description: "GitHub search is unavailable or rate limited" },
+        },
+      },
+    },
     "/v1/repositories": {
       get: { responses: { "200": { description: "Repository list" } } },
       post: {

@@ -1,3 +1,7 @@
 .container {
   margin-top: 20px;
+
+  :global(.ant-list-item) {
+    border-block-end-color: var(--color-border);
+  }
 }

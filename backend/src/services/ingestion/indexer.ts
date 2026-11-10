@@ -50,6 +50,19 @@ export class Indexer {
         });
     }, 15000);
     try {
+      // A retry reuses the same job record. Clear progress from its previous
+      // attempt so an early failure (for example, while resolving GitHub)
+      // cannot be shown alongside stale file and chunk counts.
+      await this.store.update(job, {
+        status: "FETCHING",
+        commit: "",
+        snapshotId: "",
+        files: 0,
+        chunks: 0,
+        completedChunks: 0,
+        warnings: [],
+        error: "",
+      });
       const repo = await this.store.getRepo(job.repoId);
       if (!repo)
         throw new AppError(

@@ -11,6 +11,6 @@
     "npm": ">=11 <12"
   },
   "scripts": {
-    "dev": "npm run dev --workspaces --parallel"
+    "dev": "node dev.mjs"
   }
 }

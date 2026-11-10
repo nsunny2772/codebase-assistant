@@ -1,0 +1,180 @@
+.layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  color: var(--color-ink);
+}
+
+.content {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 36px 18px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-canvas);
+
+  h2 {
+    margin: 0 0 6px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.mobileOnly {
+  display: none;
+}
+
+.main {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 28px 36px 48px;
+}
+
+.featured,
+.searchSection {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeading {
+  margin-bottom: 22px;
+
+  h3 {
+    margin: 0 0 6px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.category {
+  margin-top: 30px;
+
+  > h4 {
+    margin-bottom: 14px;
+  }
+}
+
+.categoryLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 12px;
+
+  :global(.ant-tag) {
+    margin-inline-end: 0;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.searchSection {
+  margin-top: 0;
+}
+
+.featured {
+  margin-top: 42px;
+  padding-top: 30px;
+  border-top: 1px solid var(--color-border);
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 160px 180px 190px;
+  gap: 10px;
+  align-items: center;
+
+}
+
+.filterField {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+
+  > :last-child {
+    min-width: 0;
+    min-height: 40px;
+  }
+}
+
+.queryInput {
+  width: 100%;
+}
+
+.results {
+  margin-top: 20px;
+}
+
+.resultMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.searchLoading {
+  display: block;
+  padding: 30px;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .pageHeader,
+  .main {
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .mobileOnly {
+    display: inline-flex;
+    min-height: 44px;
+  }
+
+  .pageHeader {
+    padding: 12px 16px;
+  }
+
+  .main {
+    padding: 22px 16px 36px;
+  }
+
+  .grid,
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .searchSection {
+    margin-top: 36px;
+    padding-top: 24px;
+  }
+}

@@ -1,6 +1,7 @@
 export const API_ROUTES = {
   GET_REPOSITORIES: "/repositories",
   GET_CAPACITY: "/capacity",
+  GET_EXPLORE_REPOSITORIES: "/explore/repositories",
   GET_REPOSITORY_JOBS: "/repositories/:repoId/jobs",
   GET_REPOSITORY_CHUNKS: "/repositories/:repoId/chunks",
   POST_REPOSITORIES: "/repositories",

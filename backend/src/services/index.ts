@@ -3,6 +3,7 @@ import { createRepositoryService } from "./repositories.service.js";
 import { createJobService } from "./jobs.service.js";
 import { createQuestionService } from "./questions.service.js";
 import { createSystemService } from "./system.service.js";
+import { createExploreService } from "./explore.service.js";
 
 export const createApplicationServices = (
   dependencies: ServiceDependencies,
@@ -18,6 +19,7 @@ export const createApplicationServices = (
     repositories,
     jobs: createJobService(dependencies, repositories),
     questions: createQuestionService(dependencies, repositories),
+    explore: createExploreService(),
     system: createSystemService(dependencies, checkDatabase, checkOperational),
   };
 };

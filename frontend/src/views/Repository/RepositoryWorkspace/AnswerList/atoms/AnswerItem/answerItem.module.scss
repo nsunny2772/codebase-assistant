@@ -2,13 +2,32 @@
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   margin-top: 12px;
+  color: var(--color-ink-muted);
+  line-height: 1.7;
 }
 
 .article {
   width: 100%;
+
+  h4 {
+    color: var(--color-ink);
+    font-size: 15px;
+    font-weight: 550;
+    letter-spacing: -0.15px;
+  }
+
+  a {
+    color: var(--color-accent-pink);
+    text-decoration-color: rgb(83 58 253 / 36%);
+
+    &:hover {
+      color: var(--color-ink);
+    }
+  }
 }
 
 .details {
   margin: 12px 0;
   overflow-wrap: anywhere;
+  color: var(--color-ink-subtle);
 }

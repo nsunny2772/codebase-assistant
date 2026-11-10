@@ -37,4 +37,8 @@ export const commonStrings = {
   DATABASE_NOT_CONFIGURED: "Database not configured",
   WORKER_STARTUP_FAILED:
     "Worker startup failed ({code}). Verify database configuration, schema privileges and index generation.",
+  GITHUB_SEARCH_RATE_LIMITED:
+    "GitHub search is temporarily rate limited. Wait a little and try again.",
+  GITHUB_SEARCH_UNAVAILABLE:
+    "GitHub repository search is temporarily unavailable. Try again shortly.",
 } as const;

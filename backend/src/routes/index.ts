@@ -6,6 +6,7 @@ import { createApiAccessGuard } from "../middlewares/api-access.js";
 import { registerRepositoryRoutes } from "./repositories.routes.js";
 import { registerJobRoutes } from "./jobs.routes.js";
 import { registerSystemRoutes } from "./system.routes.js";
+import { registerExploreRoutes } from "./explore.routes.js";
 
 export const registerRoutes = (
   app: Express,
@@ -14,6 +15,7 @@ export const registerRoutes = (
 ) => {
   app.use(createApiAccessGuard(dependencies));
   registerSystemRoutes(app, services);
+  registerExploreRoutes(app, services);
   registerRepositoryRoutes(app, services);
   registerJobRoutes(app, services);
 };

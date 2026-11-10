@@ -41,3 +41,5 @@ export const Sidebar = ({
     )}
   </>
 );
+
+export { WorkspaceNavigation } from "./WorkspaceNavigation";

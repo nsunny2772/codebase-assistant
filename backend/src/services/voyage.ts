@@ -7,16 +7,25 @@ import { providerFailure } from "./ai.js";
 
 const responseSchema = yup
   .object({
+    object: yup.string().optional(),
     data: yup
       .array(
         yup
           .object({
+            object: yup.string().optional(),
             index: yup.number().integer().min(0).required(),
             embedding: yup.array(yup.number().required()).required(),
           })
           .noUnknown(),
       )
       .required(),
+    model: yup.string().optional(),
+    usage: yup
+      .object({
+        total_tokens: yup.number().integer().min(0).required(),
+      })
+      .noUnknown()
+      .optional(),
   })
   .noUnknown();
 

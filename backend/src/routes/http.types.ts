@@ -33,4 +33,6 @@ export type SubmitRepositoryRequest = Request<
 
 export type SymbolRequest = Request<ParamsDictionary, unknown, unknown, ParsedQs>;
 
+export type QueryRequest = Request<ParamsDictionary, unknown, unknown, ParsedQs>;
+
 export type QuestionRequest = Request<ParamsDictionary, unknown, QuestionBody, ParsedQs>;

@@ -3,8 +3,8 @@ import { Alert, Empty, Space, Typography } from "antd";
 
 import { commonStrings } from "@src/constants/common";
 import { repositoryStrings } from "@src/constants/repository";
-import { AlertType } from "@src/enums/AlertType";
 import { RoutePath } from "@src/routes/routePaths";
+import { AlertType } from "@src/enums/AlertType";
 import { isNearLimit } from "@src/shared/utils/capacity";
 import { RepositoryList } from "@src/views/Repository/RepositoryList";
 import { RepositoryForm } from "@src/views/Repository/RepositoryForm";
@@ -14,7 +14,7 @@ import { AnswerList } from "@src/views/Repository/RepositoryWorkspace/AnswerList
 import { RepositoryDialogs } from "@src/views/Repository/RepositoryWorkspace/RepositoryDialogs";
 import { Button } from "@src/shared/components/Button";
 import { ConditionalRender } from "@src/shared/components/ConditionalRender";
-import { Sidebar } from "@src/shared/components/Sidebar";
+import { Sidebar, WorkspaceNavigation } from "@src/shared/components/Sidebar";
 import { RepositoryQuestionForm } from "@src/views/Repository/RepositoryWorkspace/RepositoryQuestionForm";
 import { useRepositoryWorkspace } from "@src/hooks/useRepositoryWorkspace";
 
@@ -71,22 +71,10 @@ const RepositoryWorkspace = () => {
       />
 
       <Sidebar open={sidebarOpen} onClose={closeSidebar}>
-        <nav className={styles.navigation}>
-          <Link
-            to={RoutePath.HOME}
-            onClick={closeSidebar}
-            aria-current={!showingRepos ? "page" : undefined}
-          >
-            {commonStrings.NAVIGATION.DASHBOARD}
-          </Link>
-          <Link
-            to={RoutePath.REPOSITORIES}
-            onClick={closeSidebar}
-            aria-current={showingRepos ? "page" : undefined}
-          >
-            {commonStrings.NAVIGATION.MY_REPOSITORIES}
-          </Link>
-        </nav>
+        <WorkspaceNavigation
+          current={showingRepos ? "repositories" : "dashboard"}
+          onNavigate={closeSidebar}
+        />
       </Sidebar>
 
       <div className={styles.content}>

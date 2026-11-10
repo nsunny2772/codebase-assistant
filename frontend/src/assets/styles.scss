@@ -1,6 +1,113 @@
-$page-background: #f9fafb;
+:root {
+  color-scheme: light;
+  --color-canvas: #ffffff;
+  --color-surface-1: #f6f9fc;
+  --color-surface-2: #eef3f8;
+  --color-surface-3: #e8eefa;
+  --color-ink: #0d253d;
+  --color-ink-muted: #273951;
+  --color-ink-subtle: #64748d;
+  --color-ink-tertiary: #61718a;
+  --color-border: #e3e8ee;
+  --color-border-strong: #a8c3de;
+  --color-primary: #533afd;
+  --color-primary-hover: #4434d4;
+  --color-accent-pink: #ea2261;
+  --color-accent-violet: #665efd;
+  --color-accent-violet-deep: #4434d4;
+  --color-success: #16856b;
+  --color-danger: #ea2261;
+  --color-input: #ffffff;
+  --color-input-ink: #0d253d;
+  --font-sans: Inter, "SF Pro Display", system-ui, -apple-system, sans-serif;
+  --font-mono: "SF Mono", "Cascadia Code", "Roboto Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
 body {
   margin: 0;
-  background: $page-background;
-  font-family: system-ui, sans-serif;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  color: var(--color-ink);
+  background: rgb(83 58 253 / 18%);
+}
+
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-select-selector,
+.ant-input-outlined {
+  color: var(--color-input-ink) !important;
+  background: var(--color-input) !important;
+}
+
+.ant-input::placeholder,
+.ant-input-affix-wrapper input::placeholder {
+  color: var(--color-ink-subtle) !important;
+}
+
+.ant-input-affix-wrapper .ant-input {
+  background: transparent !important;
+}
+
+.ant-input-affix-wrapper,
+.ant-input,
+.ant-select-selector {
+  border-color: var(--color-border-strong) !important;
+}
+
+.ant-input-affix-wrapper-focused,
+.ant-input:focus,
+.ant-select-focused .ant-select-selector {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgb(83 58 253 / 12%) !important;
+}
+
+.ant-btn {
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+.ant-tag {
+  border-radius: 9999px;
+}
+
+details summary {
+  color: var(--color-ink-subtle);
+  cursor: pointer;
+}
+
+details summary:hover {
+  color: var(--color-ink);
+}
+
+.ant-empty-description {
+  color: var(--color-ink-subtle);
+}
+
+.ant-typography-secondary {
+  color: var(--color-ink-subtle) !important;
 }

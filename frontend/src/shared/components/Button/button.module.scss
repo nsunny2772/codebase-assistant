@@ -1,3 +1,16 @@
 .button[aria-busy="true"] {
   cursor: progress;
 }
+
+.button {
+  border-radius: 9999px;
+  font-weight: 500;
+  box-shadow: none;
+  transition: background-color 120ms ease, border-color 120ms ease,
+    color 120ms ease;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
